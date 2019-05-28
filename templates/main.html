@@ -10,15 +10,17 @@
         .one-grid {
             float: left;
             width: 4.1%;
-            height: 100px;
+            height: 150px;
             background: rgba(186, 224, 255, 0.808);
             border: 0.5px solid #000;
             text-align: center;
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+        }
+        .temp_humi {
             font-size: 20px;
             color: rgb(0, 0, 0);
-            padding-top: 1%
         }
-
         .two-grid {
             width: 8.2%;
         }
@@ -42,18 +44,58 @@
 <body style="font-family: 'Do Hyeon', sans-serif;">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
+                                var  $step1_temp, $901_temp, $902_temp, $903_temp, $904_temp, $905_temp, $906_temp, $907_temp, $908_temp, $toliet_temp, $step2_temp, $910_temp,  $911_temp, $912_temp, $step2_temp, $913_temp, $914_temp, $915_temp, $916_temp, $917_temp, $918_temp, $919_temp, $920_temp;
                                 $(document).ready(function(){
                                     timer = setInterval( function () {
                                         $.ajax({
                                             url:'/select',
                                             success:function(data){
                                             var data2 = JSON.parse(data);
+                                                $step1_temp = data2['step1_temperature'];
+                                                $901_temp = data2['901_temperature'];
+                                                $902_temp = data2['902_temperature'];
+                                                $903_temp = data2['903_temperature'];
+                                                $904_temp = data2['904_temperature'];
+                                                $905_temp = data2['905_temperature'];
+                                                $906_temp = data2['906_temperature'];
+                                                $907_temp = data2['907_temperature'];
+                                                $908_temp = data2['908_temperature'];
+                                                $toilet_temp = data2['toilet_temperature'];
+                                                $step2_temp = data2['step2_temperature'];
+                                                $910_temp = data2['910_temperature'];
+                                                $911_temp = data2['911_temperature'];
+                                                $912_temp = data2['912_temperature'];
+                                                $913_temp = data2['913_temperature'];
+                                                $914_temp = data2['914_temperature'];
+                                                $915_temp = data2['915_temperature'];
+                                                $916_temp = data2['916_temperature'];
+                                                $917_temp = data2['917_temperature'];
+                                                $918_temp = data2['918_temperature'];
+                                                $919_temp = data2['919_temperature'];
+                                                $920_temp = data2['920_temperature'];
                                                 $("#911_temperature").html(data2['911_temperature'] + "'c")
+                                                $("#911_humidity").html(data2['911_humidity'] + "%")
+                                                $("#912_temperature").html(data2['912_temperature'] + "'c")
+                                                $("#912_humidity").html(data2['912_humidity'] + "%")
+
+                                                bgChange()
                                                 }
                                         })
-                                    }, 2000);
+                                    }, 1000);
                                 })
 
+                               function bgChange(){
+                                    if ($911_temp > 25){
+                                        $("#911").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#911").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($912_temp > 25){
+                                        $("#912").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#912").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    }
 
     </script>
 <hi style="font-size:50px">정보공학관 9층</hi>
@@ -92,16 +134,24 @@
     </div>
     <div class="one-grid three-grid white" id="step2">
         엘베&계단
+
     </div>
     <div class="one-grid" id="910">
         910
     </div>
     <div class="one-grid four-grid" id="911">
         911
-        <div id="911_temperature" />
+        <br>
+        <p class="temp_humi" id="911_temperature" />
+        <br>
+        <p class="temp_humi" id="911_humidity" />
     </div>
     <div class="one-grid four-grid" id="912">
         912
+        <br>
+        <p class="temp_humi" id="912_temperature" />
+        <br>
+        <p class="temp_humi" id="912_humidity" />
     </div>
     <div class="one-grid white" id="step3">
         계단
