@@ -34,86 +34,106 @@
         .white {
             background: rgba(255, 255, 255, 0.808);
         }
+
+
     </style>
 </head>
 
 <body style="font-family: 'Do Hyeon', sans-serif;">
-    <hi style="font-size:50px">정보공학관 9층</hi>
-    <hr><br />
-    <div style='display:inline'>
-        <div class="one-grid white" id="step1">
-            계단
-        </div>
-        <div class="one-grid" id="901">
-            901
-        </div>
-        <div class="one-grid" id="902">
-            902
-        </div>
-        <div class="one-grid" id="903">
-            903
-        </div>
-        <div class="one-grid" id="904">
-            904
-        </div>
-        <div class="one-grid" id="905">
-            905
-        </div>
-        <div class="one-grid" id="906">
-            906
-        </div>
-        <div class="one-grid" id="907">
-            907
-        </div>
-        <div class="one-grid" id="908">
-            908
-        </div>
-        <div class="one-grid two-grid white" id="toliet">
-            화장실
-        </div>
-        <div class="one-grid three-grid white" id="step2">
-            엘베&계단
-        </div>
-        <div class="one-grid" id="910">
-            910
-        </div>
-        <div class="one-grid four-grid" id="911">
-            911
-        </div>
-        <div class="one-grid four-grid" id="912">
-            912
-        </div>
-        <div class="one-grid white" id="step3">
-            계단
-        </div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+                                $(document).ready(function(){
+                                    timer = setInterval( function () {
+                                        $.ajax({
+                                            url:'/select',
+                                            success:function(data){
+                                            var data2 = JSON.parse(data);
+                                                $("#911_temperature").html(data2['911_temperature'] + "'c")
+                                                }
+                                        })
+                                    }, 2000);
+                                })
+
+
+    </script>
+<hi style="font-size:50px">정보공학관 9층</hi>
+<hr>
+<br/>
+<div style='display:inline'>
+    <div class="one-grid white" id="step1">
+        계단
     </div>
-    <br style="clear: both" /><br /><br /><br /><br /><br /><br /><br />
-    <div style='display:inline'>
-        <div class="one-grid three-grid" id="920">
-            920
-        </div>
-        <div class="one-grid three-grid" id="919">
-            919
-        </div>
-        <div class="one-grid three-grid" id="918">
-            918
-        </div>
-        <div class="one-grid three-grid" id="917">
-            917
-        </div>
-        <div class="one-grid three-grid" id="916">
-            916
-        </div>
-        <div class="one-grid three-grid" id="915">
-            915
-        </div>
-        <div class="one-grid three-grid" id="914">
-            914
-        </div>
-        <div class="one-grid three-grid" id="913">
-            913
-        </div>
+    <div class="one-grid" id="901">
+        901
     </div>
+    <div class="one-grid" id="902">
+        902
+    </div>
+    <div class="one-grid" id="903">
+        903
+    </div>
+    <div class="one-grid" id="904">
+        904
+    </div>
+    <div class="one-grid" id="905">
+        905
+    </div>
+    <div class="one-grid" id="906">
+        906
+    </div>
+    <div class="one-grid" id="907">
+        907
+    </div>
+    <div class="one-grid" id="908">
+        908
+    </div>
+    <div class="one-grid two-grid white" id="toliet">
+        화장실
+    </div>
+    <div class="one-grid three-grid white" id="step2">
+        엘베&계단
+    </div>
+    <div class="one-grid" id="910">
+        910
+    </div>
+    <div class="one-grid four-grid" id="911">
+        911
+        <div id="911_temperature" />
+    </div>
+    <div class="one-grid four-grid" id="912">
+        912
+    </div>
+    <div class="one-grid white" id="step3">
+        계단
+    </div>
+</div>
+<br style="clear: both"/><br/><br/><br/><br/><br/><br/><br/>
+<div style='display:inline'>
+    <div class="one-grid three-grid" id="920">
+        920
+    </div>
+    <div class="one-grid three-grid" id="919">
+        919
+    </div>
+    <div class="one-grid three-grid" id="918">
+        918
+    </div>
+    <div class="one-grid three-grid" id="917">
+        917
+    </div>
+    <div class="one-grid three-grid" id="916">
+        916
+    </div>
+    <div class="one-grid three-grid" id="915">
+        915
+    </div>
+    <div class="one-grid three-grid" id="914">
+        914
+    </div>
+    <div class="one-grid three-grid" id="913">
+        913
+    </div>
+</div>
 </body>
 
 </html>
