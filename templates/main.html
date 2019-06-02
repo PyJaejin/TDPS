@@ -48,7 +48,7 @@
                                 $(document).ready(function(){
                                     timer = setInterval( function () {
                                         $.ajax({
-                                            url:'/select',
+                                            url:'/value',
                                             success:function(data){
                                             var data2 = JSON.parse(data);
                                                 $stair1_temp = data2['stair1_temperature'];

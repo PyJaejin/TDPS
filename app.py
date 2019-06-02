@@ -14,11 +14,11 @@ def tests():
 def main():
     return render_template("main.html")
 
-@app.route('/select', methods=['GET'])
+@app.route('/value', methods=['GET'])
 def h_select():
     result = db_controller.get_setting()
     print(result)
     return json.dumps(result)
 
 if __name__ == '__main__' :
-    app.run(host='localhost', port=8080)
+    app.run(host='localhost', port=9080)
