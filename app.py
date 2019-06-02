@@ -14,7 +14,7 @@ def tests():
 def main():
     return render_template("main.html")
 
-@app.route('/select')
+@app.route('/select', methods=['GET'])
 def h_select():
     result = db_controller.get_setting()
     print(result)

@@ -44,14 +44,14 @@
 <body style="font-family: 'Do Hyeon', sans-serif;">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-                                var  $step1_temp, $901_temp, $902_temp, $903_temp, $904_temp, $905_temp, $906_temp, $907_temp, $908_temp, $toliet_temp, $step2_temp, $910_temp,  $911_temp, $912_temp, $step2_temp, $913_temp, $914_temp, $915_temp, $916_temp, $917_temp, $918_temp, $919_temp, $920_temp;
+                                var  $stair1_temp, $901_temp, $902_temp, $903_temp, $904_temp, $905_temp, $906_temp, $907_temp, $908_temp, $toilet_temp, $stair2_temp, $910_temp,  $911_temp, $912_temp, $stair3_temp, $913_temp, $914_temp, $915_temp, $916_temp, $917_temp, $918_temp, $919_temp, $920_temp;
                                 $(document).ready(function(){
                                     timer = setInterval( function () {
                                         $.ajax({
                                             url:'/select',
                                             success:function(data){
                                             var data2 = JSON.parse(data);
-                                                $step1_temp = data2['step1_temperature'];
+                                                $stair1_temp = data2['stair1_temperature'];
                                                 $901_temp = data2['901_temperature'];
                                                 $902_temp = data2['902_temperature'];
                                                 $903_temp = data2['903_temperature'];
@@ -61,11 +61,12 @@
                                                 $907_temp = data2['907_temperature'];
                                                 $908_temp = data2['908_temperature'];
                                                 $toilet_temp = data2['toilet_temperature'];
-                                                $step2_temp = data2['step2_temperature'];
+                                                $stair2_temp = data2['stair2_temperature'];
                                                 $910_temp = data2['910_temperature'];
                                                 $911_temp = data2['911_temperature'];
                                                 $912_temp = data2['912_temperature'];
                                                 $913_temp = data2['913_temperature'];
+                                                $stair3_temp = data2['stair3_temperature'];
                                                 $914_temp = data2['914_temperature'];
                                                 $915_temp = data2['915_temperature'];
                                                 $916_temp = data2['916_temperature'];
@@ -73,11 +74,52 @@
                                                 $918_temp = data2['918_temperature'];
                                                 $919_temp = data2['919_temperature'];
                                                 $920_temp = data2['920_temperature'];
+                                                $("#stair1_temperature").html(data2['stair1_temperature'] + "'c")
+                                                $("#stair1_humidity").html(data2['stair1_humidity'] + "%")
+                                                $("#901_temperature").html(data2['901_temperature'] + "'c")
+                                                $("#901_humidity").html(data2['901_humidity'] + "%")
+                                                $("#902_temperature").html(data2['902_temperature'] + "'c")
+                                                $("#902_humidity").html(data2['902_humidity'] + "%")
+                                                $("#903_temperature").html(data2['903_temperature'] + "'c")
+                                                $("#903_humidity").html(data2['903_humidity'] + "%")
+                                                $("#904_temperature").html(data2['904_temperature'] + "'c")
+                                                $("#904_humidity").html(data2['904_humidity'] + "%")
+                                                $("#905_temperature").html(data2['905_temperature'] + "'c")
+                                                $("#905_humidity").html(data2['905_humidity'] + "%")
+                                                $("#906_temperature").html(data2['906_temperature'] + "'c")
+                                                $("#906_humidity").html(data2['906_humidity'] + "%")
+                                                $("#907_temperature").html(data2['907_temperature'] + "'c")
+                                                $("#907_humidity").html(data2['907_humidity'] + "%")
+                                                $("#908_temperature").html(data2['908_temperature'] + "'c")
+                                                $("#908_humidity").html(data2['908_humidity'] + "%")
+                                                $("#toilet_temperature").html(data2['toilet_temperature'] + "'c")
+                                                $("#toilet_humidity").html(data2['toilet_humidity'] + "%")
+                                                $("#stair2_temperature").html(data2['stair2_temperature'] + "'c")
+                                                $("#stair2_humidity").html(data2['stair2_humidity'] + "%")
+                                                $("#910_temperature").html(data2['910_temperature'] + "'c")
+                                                $("#910_humidity").html(data2['910_humidity'] + "%")
                                                 $("#911_temperature").html(data2['911_temperature'] + "'c")
                                                 $("#911_humidity").html(data2['911_humidity'] + "%")
                                                 $("#912_temperature").html(data2['912_temperature'] + "'c")
                                                 $("#912_humidity").html(data2['912_humidity'] + "%")
-
+                                                $("#stair3_temperature").html(data2['stair3_temperature'] + "'c")
+                                                $("#stair3_humidity").html(data2['stair3_humidity'] + "%")
+                                                $("#913_temperature").html(data2['913_temperature'] + "'c")
+                                                $("#913_humidity").html(data2['913_humidity'] + "%")
+                                                $("#914_temperature").html(data2['914_temperature'] + "'c")
+                                                $("#914_humidity").html(data2['914_humidity'] + "%")
+                                                $("#915_temperature").html(data2['915_temperature'] + "'c")
+                                                $("#915_humidity").html(data2['915_humidity'] + "%")
+                                                $("#916_temperature").html(data2['916_temperature'] + "'c")
+                                                $("#916_humidity").html(data2['916_humidity'] + "%")
+                                                $("#917_temperature").html(data2['917_temperature'] + "'c")
+                                                $("#917_humidity").html(data2['917_humidity'] + "%")
+                                                $("#918_temperature").html(data2['918_temperature'] + "'c")
+                                                $("#918_humidity").html(data2['918_humidity'] + "%")
+                                                $("#919_temperature").html(data2['919_temperature'] + "'c")
+                                                $("#919_humidity").html(data2['919_humidity'] + "%")
+                                                $("#920_temperature").html(data2['920_temperature'] + "'c")
+                                                $("#920_humidity").html(data2['920_humidity'] + "%")
                                                 bgChange()
                                                 }
                                         })
@@ -85,6 +127,51 @@
                                 })
 
                                function bgChange(){
+                                    if ($901_temp > 25){
+                                        $("#901").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#901").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($902_temp > 25){
+                                        $("#902").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#902").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($903_temp > 25){
+                                        $("#903").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#903").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($904_temp > 25){
+                                        $("#904").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#904").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($905_temp > 25){
+                                        $("#905").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#905").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($906_temp > 25){
+                                        $("#906").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#906").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($907_temp > 25){
+                                        $("#907").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#907").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($908_temp > 25){
+                                        $("#908").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#908").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($910_temp > 25){
+                                        $("#910").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#910").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
                                     if ($911_temp > 25){
                                         $("#911").css("background", "rgb(255, 051, 051)");
                                         } else {
@@ -95,6 +182,66 @@
                                         } else {
                                             $("#912").css("background", "rgba(186, 224, 255, 0.808)");
                                         }
+                                    if ($913_temp > 25){
+                                        $("#913").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#913").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($914_temp > 25){
+                                        $("#914").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#914").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($915_temp > 25){
+                                        $("#915").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#915").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($916_temp > 25){
+                                        $("#916").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#916").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($917_temp > 25){
+                                        $("#917").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#917").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($918_temp > 25){
+                                        $("#918").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#918").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($919_temp > 25){
+                                        $("#919").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#919").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($920_temp > 25){
+                                        $("#920").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#920").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($stair1_temp > 25){
+                                        $("#stair1").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#stair1").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($stair2_temp > 25){
+                                        $("#stair2").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#stair2").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($stair3_temp > 25){
+                                        $("#stair3").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#stair3").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
+                                    if ($toilet_temp > 25){
+                                        $("#toilet").css("background", "rgb(255, 051, 051)");
+                                        } else {
+                                            $("#toilet").css("background", "rgba(186, 224, 255, 0.808)");
+                                        }
                                     }
 
     </script>
@@ -102,42 +249,89 @@
 <hr>
 <br/>
 <div style='display:inline'>
-    <div class="one-grid white" id="step1">
+    <div class="one-grid white" id="stair1">
         계단
+        <br>
+        <p class="temp_humi" id="stair1_temperature" />
+        <br>
+        <p class="temp_humi" id="stair1_humidity" />
     </div>
     <div class="one-grid" id="901">
         901
+        <br>
+        <p class="temp_humi" id="901_temperature" />
+        <br>
+        <p class="temp_humi" id="901_humidity" />
     </div>
     <div class="one-grid" id="902">
         902
+        <br>
+        <p class="temp_humi" id="902_temperature" />
+        <br>
+        <p class="temp_humi" id="902_humidity" />
     </div>
     <div class="one-grid" id="903">
         903
+        <br>
+        <p class="temp_humi" id="903_temperature" />
+        <br>
+        <p class="temp_humi" id="903_humidity" />
     </div>
     <div class="one-grid" id="904">
         904
+        <br>
+        <p class="temp_humi" id="904_temperature" />
+        <br>
+        <p class="temp_humi" id="904_humidity" />
     </div>
     <div class="one-grid" id="905">
         905
+        <br>
+        <p class="temp_humi" id="905_temperature" />
+        <br>
+        <p class="temp_humi" id="905_humidity" />
     </div>
     <div class="one-grid" id="906">
         906
+        <br>
+        <p class="temp_humi" id="906_temperature" />
+        <br>
+        <p class="temp_humi" id="906_humidity" />
     </div>
     <div class="one-grid" id="907">
         907
+        <br>
+        <p class="temp_humi" id="907_temperature" />
+        <br>
+        <p class="temp_humi" id="907_humidity" />
     </div>
     <div class="one-grid" id="908">
         908
+        <br>
+        <p class="temp_humi" id="908_temperature" />
+        <br>
+        <p class="temp_humi" id="908_humidity" />
     </div>
-    <div class="one-grid two-grid white" id="toliet">
+    <div class="one-grid two-grid white" id="toilet">
         화장실
+        <br>
+        <p class="temp_humi" id="toilet_temperature" />
+        <br>
+        <p class="temp_humi" id="toilet_humidity" />
     </div>
-    <div class="one-grid three-grid white" id="step2">
+    <div class="one-grid three-grid white" id="stair2">
         엘베&계단
-
+        <br>
+        <p class="temp_humi" id="stair2_temperature" />
+        <br>
+        <p class="temp_humi" id="stair2_humidity" />
     </div>
     <div class="one-grid" id="910">
         910
+        <br>
+        <p class="temp_humi" id="910_temperature" />
+        <br>
+        <p class="temp_humi" id="910_humidity" />
     </div>
     <div class="one-grid four-grid" id="911">
         911
@@ -153,35 +347,71 @@
         <br>
         <p class="temp_humi" id="912_humidity" />
     </div>
-    <div class="one-grid white" id="step3">
+    <div class="one-grid white" id="stair3">
         계단
+        <br>
+        <p class="temp_humi" id="stair3_temperature" />
+        <br>
+        <p class="temp_humi" id="stair3_humidity" />
     </div>
 </div>
 <br style="clear: both"/><br/><br/><br/><br/><br/><br/><br/>
 <div style='display:inline'>
     <div class="one-grid three-grid" id="920">
         920
+        <br>
+        <p class="temp_humi" id="920_temperature" />
+        <br>
+        <p class="temp_humi" id="920_humidity" />
     </div>
     <div class="one-grid three-grid" id="919">
         919
+        <br>
+        <p class="temp_humi" id="919_temperature" />
+        <br>
+        <p class="temp_humi" id="919_humidity" />
     </div>
     <div class="one-grid three-grid" id="918">
         918
+        <br>
+        <p class="temp_humi" id="918_temperature" />
+        <br>
+        <p class="temp_humi" id="918_humidity" />
     </div>
     <div class="one-grid three-grid" id="917">
         917
+        <br>
+        <p class="temp_humi" id="917_temperature" />
+        <br>
+        <p class="temp_humi" id="917_humidity" />
     </div>
     <div class="one-grid three-grid" id="916">
         916
+        <br>
+        <p class="temp_humi" id="916_temperature" />
+        <br>
+        <p class="temp_humi" id="916_humidity" />
     </div>
     <div class="one-grid three-grid" id="915">
         915
+        <br>
+        <p class="temp_humi" id="915_temperature" />
+        <br>
+        <p class="temp_humi" id="915_humidity" />
     </div>
     <div class="one-grid three-grid" id="914">
         914
+        <br>
+        <p class="temp_humi" id="914_temperature" />
+        <br>
+        <p class="temp_humi" id="914_humidity" />
     </div>
     <div class="one-grid three-grid" id="913">
         913
+        <br>
+        <p class="temp_humi" id="913_temperature" />
+        <br>
+        <p class="temp_humi" id="913_humidity" />
     </div>
 </div>
 </body>
