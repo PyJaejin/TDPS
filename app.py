@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from src.DB_Controller import DB_Controller
 import json
 from datetime import datetime
@@ -21,9 +21,10 @@ def h_select():
         print(result)
         return json.dumps(result)
     elif request.method == 'POST':
-        node_info = json.loads(request.data)
+        node_info = json.loads(request.data.decode('utf-8'))
+        print(node_info)
         db_controller.set_setting(node_info['node_id'], node_info['value'])
-        return json.dumps("result" : 1)
+        return json.dumps({"result" : 1})
         
 
 if __name__ == '__main__' :

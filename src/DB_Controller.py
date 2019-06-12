@@ -45,8 +45,9 @@ class DB_Controller():
 
     def set_setting(self, node_id, value):
         db = pymysql.connect(host=self.host, port=self.port, user=self.user, passwd=self.passwd, db=self.db, charset='utf8', autocommit=True)
-        cursor = db.cusor()
-        sql = "UPDATE temperature SET value = ", str(value), + " WHERE node_id = ", str(node_id), ";"
+        cursor = db.cursor()
+        sql = "UPDATE temperature SET value = " + str(value) + " WHERE node_id = '" + str(node_id) + "';"
+        print(sql)
         cursor.execute(sql)
         db.close()
         return 1
