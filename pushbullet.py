@@ -28,19 +28,20 @@ db_name = 'TSMS'
 db_charset = 'utf8mb4'
 user_id_list = []
 user_passwd_list = []
-count = 0 
-temp = 25
+count = 0
+temp = 30
 
 def getUser():
-    user_id = ['hayoung','hyuna']
-
+    #user_id = ['hayoung','hyuna']
     db = pymysql.connect(host=db_host, port=db_port, user=db_user, passwd=db_passwd, db=db_name, charset='utf8', autocommit=True)         
     cursor = db.cursor()
 
-    for i in range(len(user_id)):
-        sql = "SELECT userid,passwd from user where name = '"+str(user_id[i])+"'"
-        cursor.execute(sql)
+# for i in range(len(user_id)):
+    sql = "SELECT userid,passwd from user"# where name = '"+str(user_id[i])+"'"
+    cursor.execute(sql)
+    while True:
         data = cursor.fetchone()
+        if data == None: break;
         user_id_list.append(str(data[0]))
         user_passwd_list.append(str(data[1]))
         
@@ -76,16 +77,14 @@ def sendmail(user_id, password, cc_users, subject,text,attach):
     server.sendmail(user_id,recvid, msg.as_string())
     server.quit()
     
-if __name__ == "__main__":
-    print(getUser())
+def send_warning_msg(node_id, value):
+    getUser()
+    msg = "place : " + str(node_id) + ", temperature : " + str(value)
+    if temp <= value: 
+        for i in range(len(user_id_list)):
+            sendmail(user_id_list[i],user_passwd_list[i],"", "warning!!", msg, None)
 
-    while True:
-        print(count)
-        if count == 0 and temp >= 25 : 
-            for i in range(len(user_id_list)):
-                sendmail(user_id_list[i],user_passwd_list[i],"", "class2222", "flame!!", None)
-            count = 1
-        elif count == 1 and temp < 25:
-            count = 0 
-        else:
-            continue
+
+
+if __name__ == "__main__":
+    print("Hello")
