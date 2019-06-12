@@ -43,6 +43,14 @@ class DB_Controller():
         db.close()
         return self.setting_json
 
+    def set_setting(self, node_id, value):
+        db = pymysql.connect(host=self.host, port=self.port, user=self.user, passwd=self.passwd, db=self.db, charset='utf8', autocommit=True)
+        cursor = db.cusor()
+        sql = "UPDATE temperature SET value = ", str(value), + " WHERE node_id = ", str(node_id), ";"
+        cursor.execute(sql)
+        db.close()
+        return 1
+
 
 if __name__ == '__main__':
     a = DB_Controller()
