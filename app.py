@@ -23,7 +23,7 @@ def h_select():
     elif request.method == 'POST':
         node_info = json.loads(request.data.decode('utf-8'))
         print(node_info)
-        db_controller.set_setting(node_info['node_id'], node_info['value'])
+        db_controller.set_setting(node_info['node_id'], node_info['temp_value'], node_info['humi_value'])
         return json.dumps({"result" : 1})
         
 

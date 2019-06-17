@@ -77,9 +77,9 @@ def sendmail(user_id, password, cc_users, subject,text,attach):
     server.sendmail(user_id,recvid, msg.as_string())
     server.quit()
     
-def send_warning_msg(node_id, value):
+def send_warning_msg(node_id, temp_value, humi_value):
     getUser()
-    msg = "place : " + str(node_id) + ", temperature : " + str(value)
+    msg = "place : " + str(node_id) + ", temperature : " + str(temp_value) + ", humidity : " + str(humi_value)
     if temp <= value: 
         for i in range(len(user_id_list)):
             sendmail(user_id_list[i],user_passwd_list[i],"", "warning!!", msg, None)
