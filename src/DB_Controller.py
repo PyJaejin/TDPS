@@ -4,11 +4,11 @@ import ast
 
 class DB_Controller():
     def __init__(self):
-        self.host = '113.198.236.131'
-        self.port = 10306
-        self.user = 'lab919'
-        self.passwd = 'software'
-        self.db = 'TSMS'
+        self.host = ''
+        self.port = 
+        self.user = ''
+        self.passwd = ''
+        self.db = ''
         self.charset = 'utf8mb4'
         self.setting_json = {}
 
